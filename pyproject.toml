@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rfc3987-helpers"
+version = "1.0.0"
+description = "Helper functions to validate strings according to the RFC 3987 grammar."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+keywords = ["RFC 3987", "validator", "syntax", "parser"]
+authors = [
+  { name = "Will Riley", email = "wanderingwill@gmail.com" },
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development",
+    "Topic :: Utilities"
+]
+dependencies = ["lark>=1.2.2"]
+
+[project.urls]
+Homepage = "https://github.com/willynilly/rfc3987-helpers"
+Documentation = "https://github.com/willynilly/rfc3987-helpers#readme"
+Issues = "https://github.com/willynilly/rfc3987-helpers/issues"
+Source = "https://github.com/willynilly/rfc3987-helpers"
+
+[project.optional-dependencies]
+testing = [
+    "pytest>=8.3.5",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "src"
+]
+
+[tool.hatch.build.targets.sdist.force-include]
+"CITATION.cff" = "src/rfc3987-helpers/CITATION.cff"
+"rfc3987.lark" = "src/rfc3987-helpers/rfc3987.lark"
