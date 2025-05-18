@@ -1754,84 +1754,22 @@
     "irelative_ref": [],
     "iri": [
         {
+            "value": "http://example.com/%ZZ",
+            "expect_lark": false,
+            "expect_regex": true,
+            "reason": "Invalid percent-encoding: %ZZ is not two hex digits. Lark enforces this via `% HEXDIG HEXDIG`, regex may not.",
+            "conforms_with_rfc3987": false
+        },
+        {
+            "value": "http://example.com/abc def",
+            "expect_lark": false,
+            "expect_regex": true,
+            "reason": "Contains unencoded space, which violates URI/IRI syntax. Regex may not catch this unless explicitly encoded.",
+            "conforms_with_rfc3987": false
+        },
+        {
             "value": "iri_invalid_0",
             "reason": "Example 1 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_1",
-            "reason": "Example 2 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_2",
-            "reason": "Example 3 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_3",
-            "reason": "Example 4 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_4",
-            "reason": "Example 5 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_5",
-            "reason": "Example 6 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_6",
-            "reason": "Example 7 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_7",
-            "reason": "Example 8 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_8",
-            "reason": "Example 9 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_9",
-            "reason": "Example 10 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_10",
-            "reason": "Example 11 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_11",
-            "reason": "Example 12 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_12",
-            "reason": "Example 13 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_13",
-            "reason": "Example 14 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_14",
-            "reason": "Example 15 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_15",
-            "reason": "Example 16 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_16",
-            "reason": "Example 17 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_17",
-            "reason": "Example 18 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_18",
-            "reason": "Example 19 violates the grammar for 'iri' due to invalid characters or structure."
-        },
-        {
-            "value": "iri_invalid_19",
-            "reason": "Example 20 violates the grammar for 'iri' due to invalid characters or structure."
         }
     ],
     "iri_reference": [

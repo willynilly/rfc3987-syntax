@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: rfc3987-helpers
+title: rfc3987-syntax
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
@@ -10,17 +10,18 @@ authors:
     email: wanderingwill@gmail.com
     orcid: "https://orcid.org/0000-0003-1822-6756"
 repository-code: >-
-  https://github.com/willynilly/rfc3987-helpers
+  https://github.com/willynilly/rfc3987-syntax
 abstract: >-
-  Helper functions to validate strings according to the RFC 3987 grammar.
+  Helper functions to syntactically validate strings according to RFC 3987
 keywords:
+  - RFC 3987
   - RFC3987
   - validator 
-  - regex
-  - permissive
+  - syntax
+  - parser
 license: MIT
 version: "1.0.0"
-date-released: "2025-05-14"
+date-released: "2025-05-18"
 references:
   - title: "abnf-to-regexp"
     type: software
@@ -62,4 +63,7 @@ references:
   - title: "ChatGPT"
     authors:
       - name: OpenAI
+    type: software
+    version: "GPT-4o"
+    url: "https://chat.openai.com/chat"
     

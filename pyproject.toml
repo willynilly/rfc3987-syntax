@@ -3,14 +3,14 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "rfc3987-helpers"
+name = "rfc3987-syntax"
 version = "1.0.0"
-description = "Helper functions to validate strings according to the RFC 3987 grammar."
+description = "Helper functions to syntactically validate strings according to RFC 3987."
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
-keywords = ["RFC 3987", "validator", "syntax", "parser"]
+keywords = ["RFC 3987", "RFC3987", "validator", "syntax", "parser"]
 authors = [
   { name = "Will Riley", email = "wanderingwill@gmail.com" },
 ]
@@ -33,10 +33,10 @@ classifiers = [
 dependencies = ["lark>=1.2.2"]
 
 [project.urls]
-Homepage = "https://github.com/willynilly/rfc3987-helpers"
-Documentation = "https://github.com/willynilly/rfc3987-helpers#readme"
-Issues = "https://github.com/willynilly/rfc3987-helpers/issues"
-Source = "https://github.com/willynilly/rfc3987-helpers"
+Homepage = "https://github.com/willynilly/rfc3987-syntax"
+Documentation = "https://github.com/willynilly/rfc3987-syntax#readme"
+Issues = "https://github.com/willynilly/rfc3987-syntax/issues"
+Source = "https://github.com/willynilly/rfc3987-syntax"
 
 [project.optional-dependencies]
 testing = [
@@ -49,5 +49,5 @@ pythonpath = [
 ]
 
 [tool.hatch.build.targets.sdist.force-include]
-"CITATION.cff" = "src/rfc3987-helpers/CITATION.cff"
-"rfc3987.lark" = "src/rfc3987-helpers/rfc3987.lark"
+"CITATION.cff" = "src/rfc3987_syntax/CITATION.cff"
+"syntax_rfc3987.lark" = "src/rfc3987_syntax/syntax_rfc3987.lark"
