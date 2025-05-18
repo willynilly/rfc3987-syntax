@@ -51,7 +51,7 @@ pip install rfc3987-syntax
 
 ## 🛠 Usage
 
-### 🔍 List all supported "terms" (i.e., non-terminals and terminals within ABNF production rules) used to validate the syntax of an IRI according to RFC 3987
+### List all supported "terms" (i.e., non-terminals and terminals within ABNF production rules) used to validate the syntax of an IRI according to RFC 3987
 
 ```python
 from rfc3987_syntax import RFC3987_SYNTAX_TERMS
@@ -61,7 +61,7 @@ for term in RFC3987_SYNTAX_TERMS:
     print(term)
 ```
 
-### ✅ Syntactically validate a string using the general-purpose validator
+### Syntactically validate a string using the general-purpose validator
 
 ```python
 from rfc3987_syntax import is_valid_syntax
@@ -73,7 +73,7 @@ if not is_valid_syntax(term='iri', value='bob'):
     print("✗ Invalid IRI syntax")
 ```
 
-### 🐍 Alternatively, use term-specific helpers to validate RFC 3987 syntax.
+### Alternatively, use term-specific helpers to validate RFC 3987 syntax.
 
 ```python
 from rfc3987_syntax import is_valid_syntax_iri
@@ -83,6 +83,7 @@ if is_valid_syntax_iri('http://github.com'):
 
 if not is_valid_syntax_iri('bob'):
     print("✗ Invalid IRI syntax")
+```
 
 ### Get the Lark parse tree for a syntax validation (useful for additional semantic validation)
 
@@ -108,7 +109,7 @@ This grammar was derived from:
 
 > 📝 When `RFC 3986` is listed as the source, it is **used in accordance with RFC 3987**, which explicitly references it for foundational elements.
 
-### 📋 Rule-to-Source Mapping
+### Rule-to-Source Mapping
 
 | Rule/Component       | Source     | Notes |
 |----------------------|------------|-------|
