@@ -2,7 +2,6 @@
 
 Helper functions to parse and validate the **syntax** of terms defined in **[RFC 3987](https://www.rfc-editor.org/info/rfc3987)** — the IETF standard for Internationalized Resource Identifiers (IRIs).
 
----
 
 ## 🎯 Purpose
 
@@ -15,7 +14,6 @@ The goal of `rfc3987-syntax` is to provide a **lightweight, permissively license
 
 > 🧠 **Note:** This project focuses on **syntax validation only**. RFC 3987 specifies **additional semantic rules** (e.g., Unicode normalization, BiDi constraints, percent-encoding requirements) that must be enforced separately.
 
----
 
 ## 📄 License, Attribution, and Citation
 
@@ -31,7 +29,6 @@ This project:
 
 Please cite this software in accordance with the enclosed CITATION.cff file.
 
----
 
 ## ⚠️ Limitations
 
@@ -45,14 +42,12 @@ The grammar and parser enforce **only the ABNF syntax** defined in RFC 3987. The
 
 ChatGPT 40 was used by the author during the development process. Errors may exist due to this assistance. The author is not an expert in formal grammars or the RFC 3987 or RFC 3986. The grammar, code, and documentation need additional review and testing by experts.
 
----
 
 ## 📦 Installation
 
 ```bash
 pip install rfc3987-syntax
-
----
+```
 
 ## 🛠 Usage
 
@@ -99,8 +94,6 @@ ptree: ParseTree = parse(term="iri", value="http://github.com")
 print(ptree)
 ```
 
----
-
 ## 📚 Sources
 
 This grammar was derived from:
@@ -114,8 +107,6 @@ This grammar was derived from:
   → https://datatracker.ietf.org/doc/html/rfc3986
 
 > 📝 When `RFC 3986` is listed as the source, it is **used in accordance with RFC 3987**, which explicitly references it for foundational elements.
-
----
 
 ### 📋 Rule-to-Source Mapping
 
