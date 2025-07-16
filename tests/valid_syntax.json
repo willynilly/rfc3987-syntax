@@ -40,6 +40,11 @@
             "reason": "Regex may match due to naive prefix pattern, but triple slash `http:///` is invalid due to empty authority.",
             "conforms_with_rfc3987_semantics": false,
             "semantics_notes": "Can occur when ireg_name is empty. To prevent this, change the ireg_name production rule to: ireg_name: (iunreserved | pct_encoded | sub_delims)+"
+        },
+        {
+            "value": "http://-.~_!$&'()*+,;=:%40:80%2f::::::@example.com",
+            "reason": "a valid IRI with many special characters",
+            "expect_lark": true
         }
     ],
     "iri_reference": [],
