@@ -8,7 +8,11 @@ RFC3987_SYNTAX_PARSER_TYPE: str = "earley"
 RFC3987_SYNTAX_GRAMMAR_PATH: Path = Path(__file__).parent / "syntax_rfc3987.lark"
 RFC3987_SYNTAX_TERMS: list[str] = [
     "iri",
+    "iri_reference",
+    "absolute_iri",
     "scheme",
+    "irelative_ref",
+    "irelative_part"
     "ihier_part",
     "iauthority",
     "iuserinfo",
@@ -43,7 +47,7 @@ RFC3987_SYNTAX_TERMS: list[str] = [
 
 grammar: str = load_grammar(RFC3987_SYNTAX_GRAMMAR_PATH)
 
-syntax_parser = Lark(grammar, start=["iri"], parser=RFC3987_SYNTAX_PARSER_TYPE)
+syntax_parser = Lark(grammar, start=["iri", "iri_reference", "absolute_iri"], parser=RFC3987_SYNTAX_PARSER_TYPE)
 
 
 def parse(term: str, value: str) -> ParseTree:
@@ -72,6 +76,14 @@ def make_syntax_validator(rule_name):
 
 
 is_valid_syntax_iri = make_syntax_validator("iri")
+
+is_valid_syntax_iri_reference = make_syntax_validator("iri_reference")
+
+is_valid_syntax_absolute_iri = make_syntax_validator("absolute_iri")
+
+is_valid_syntax_irelative_ref = make_syntax_validator("irelative_ref")
+
+is_valid_syntax_irelative_part = make_syntax_validator("irelative_part")
 
 is_valid_syntax_ihier_part = make_syntax_validator("ihier_part")
 

@@ -1,12 +1,23 @@
 
 iri: scheme ":" ihier_part ("?" iquery)? ("#" ifragment)?
 
+iri_reference: iri | irelative_ref
+
+absolute_iri: scheme ":" ihier_part ("?" iquery)?
+
 scheme: alpha (alpha | digit | "+" | "-" | ".")*
 
 ihier_part: "//" iauthority ipath_abempty
           | ipath_absolute
           | ipath_rootless
           | ipath_empty
+
+irelative_ref: irelative_part ("?" iquery)? ("#" ifragment)?
+
+irelative_part: "//" iauthority ipath_abempty
+              | ipath_absolute
+              | ipath_noscheme
+              | ipath_empty
 
 iauthority: (iuserinfo "@")? ihost (":" port)?
 
