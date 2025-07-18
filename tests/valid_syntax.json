@@ -58,6 +58,11 @@
             "semantics_notes": "Can occur when ireg_name is empty. To prevent this, change the ireg_name production rule to: ireg_name: (iunreserved | pct_encoded | sub_delims)+"
         },
         {
+            "value": "http://-.~_!$&'()*+,;=:%40:80%2f::::::@example.com",
+            "reason": "a valid IRI with many special characters",
+            "expect_lark": true
+        },
+        {
             "value": "mailto:用户@例子.公司@example.com",
             "expect_lark": true,
             "reason": ""
