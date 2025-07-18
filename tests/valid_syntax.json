@@ -24,7 +24,23 @@
     "ihier_part": [],
     "iprivate": [],
     "iquery": [],
-    "absolute_iri": [],
+    "absolute_iri": [
+        {
+            "value": "ftp://пример.испытание.example.com/файл.txt",
+            "expect_lark": true,
+            "reason": ""
+        },
+        {
+            "value": "https://www.example.com/über",
+            "expect_lark": true,
+            "reason": ""
+        },
+        {
+            "value": "https://exämple.example.org/pageセクション1",
+            "expect_lark": true,
+            "reason": ""
+        }
+    ],
     "gen_delims": [],
     "ifragment": [],
     "isegment_nz_nc": [],
@@ -45,9 +61,55 @@
             "value": "http://-.~_!$&'()*+,;=:%40:80%2f::::::@example.com",
             "reason": "a valid IRI with many special characters",
             "expect_lark": true
+        },
+        {
+            "value": "mailto:用户@例子.公司@example.com",
+            "expect_lark": true,
+            "reason": ""
+        },
+        {
+            "value": "ftp://пример.испытание.example.com/файл.txt",
+            "expect_lark": true,
+            "reason": ""
+        },
+        {
+            "value": "https://www.example.com/über",
+            "expect_lark": true,
+            "reason": ""
+        },
+        {
+            "value": "https://exämple.example.org/page#セクション1",
+            "expect_lark": true,
+            "reason": ""
         }
     ],
-    "iri_reference": [],
+    "iri_reference": [
+        {
+            "value": "/documents/नियम.pdf",
+            "expect_lark": true,
+            "reason": ""
+        },
+        {
+            "value": "../../фото/лошадь.jpg",
+            "expect_lark": true,
+            "reason": ""
+        },
+        {
+            "value": "index.html#संपर्क",
+            "expect_lark": true,
+            "reason": ""
+        },
+        {
+            "value": "doc/guide.html#überblick",
+            "expect_lark": true,
+            "reason": ""
+        },
+        {
+            "value": "пример/тест#часть2",
+            "expect_lark": true,
+            "reason": ""
+        }
+    ],
     "reserved": [],
     "scheme": [],
     "pct_encoded": [],

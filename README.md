@@ -40,7 +40,7 @@ The grammar and parser enforce **only the ABNF syntax** defined in RFC 3987. The
 - ✅ Valid **IPv6 compression** (only one `::`, max segments)
 - ✅ Context-aware **percent-encoding** requirements
 
-ChatGPT 40 was used by the author during the development process. Errors may exist due to this assistance. The author is not an expert in formal grammars or the RFC 3987 or RFC 3986. The grammar, code, and documentation need additional review and testing by experts.
+ChatGPT 40 was used during the original development process. Errors may exist due to this assistance. Additional review, testing, and bug fixes by human experts is welcome.
 
 
 ## 📦 Installation
@@ -71,18 +71,25 @@ if is_valid_syntax(term='iri', value='http://github.com'):
 
 if not is_valid_syntax(term='iri', value='bob'):
     print("✗ Invalid IRI syntax")
+
+if not is_valid_syntax(term='iri_reference', value='bob'):
+    print("✓ Valid IRI-reference syntax")
 ```
 
 ### Alternatively, use term-specific helpers to validate RFC 3987 syntax.
 
 ```python
 from rfc3987_syntax import is_valid_syntax_iri
+from rfc3987_syntax import is_valid_syntax_iri_reference
 
 if is_valid_syntax_iri('http://github.com'):
     print("✓ Valid IRI syntax")
 
 if not is_valid_syntax_iri('bob'):
     print("✗ Invalid IRI syntax")
+    
+if is_valid_syntax_iri_reference('bob'):
+    print("✓ Valid IRI-reference syntax")
 ```
 
 ### Get the Lark parse tree for a syntax validation (useful for additional semantic validation)
@@ -114,8 +121,12 @@ This grammar was derived from:
 | Rule/Component       | Source     | Notes |
 |----------------------|------------|-------|
 | `iri`                | RFC 3987   | Top-level IRI rule |
+| `iri_reference`      | RFC 3987   | Top-level IRI Reference rule |
+| `absolute_iri`       | RFC 3987   | Top-level Absolute IRI rule |
 | `scheme`             | RFC 3986   | Referenced by RFC 3987 §2.2 |
 | `ihier_part`         | RFC 3987   | IRI-specific hierarchy |
+| `irelative_ref`      | RFC 3987   | IRI-specific relative ref |
+| `irelative_part`     | RFC 3987   | IRI-specific relative part |
 | `iauthority`         | RFC 3986   | Standard URI authority |
 | `ipath_abempty`      | RFC 3986   | Path format variant |
 | `ipath_absolute`     | RFC 3986   | Absolute path |

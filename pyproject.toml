@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "rfc3987-syntax"
-version = "1.0.0"
+version = "1.1.0"
 description = "Helper functions to syntactically validate strings according to RFC 3987."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -13,6 +13,7 @@ license-files = ["LICEN[CS]E*"]
 keywords = ["RFC 3987", "RFC3987", "validator", "syntax", "parser"]
 authors = [
   { name = "Will Riley", email = "wanderingwill@gmail.com" },
+  { name = "Jan Kowalleck" }
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
