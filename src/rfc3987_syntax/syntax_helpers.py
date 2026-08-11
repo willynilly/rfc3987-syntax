@@ -1,6 +1,7 @@
-from lark import Lark, ParseTree, exceptions
-
+from functools import partial
 from pathlib import Path
+
+from lark import Lark, ParseTree, exceptions
 
 from rfc3987_syntax.utils import load_grammar
 
@@ -12,7 +13,7 @@ RFC3987_SYNTAX_TERMS: list[str] = [
     "absolute_iri",
     "scheme",
     "irelative_ref",
-    "irelative_part"
+    "irelative_part",
     "ihier_part",
     "iauthority",
     "iuserinfo",
@@ -45,9 +46,52 @@ RFC3987_SYNTAX_TERMS: list[str] = [
     "pct_encoded",
 ]
 
+# All start rules needed by validators
+ALL_START_RULES: list[str] = [
+    "iri",
+    "iri_reference",
+    "absolute_iri",
+    "irelative_ref",
+    "irelative_part",
+    "ihier_part",
+    "iauthority",
+    "iuserinfo",
+    "ihost",
+    "ireg_name",
+    "ipath",
+    "ipath_abempty",
+    "ipath_absolute",
+    "ipath_noscheme",
+    "ipath_rootless",
+    "ipath_empty",
+    "isegment",
+    "isegment_nz",
+    "isegment_nz_nc",
+    "ipchar",
+    "iquery",
+    "ifragment",
+    "iunreserved",
+    "ucschar",
+    "iprivate",
+    "sub_delims",
+    "ip_literal",
+    "ipvfuture",
+    "ipv6address",
+    "h16",
+    "ls32",
+    "ipv4address",
+    "dec_octet",
+    "unreserved",
+    "alpha",
+    "digit",
+    "hexdig",
+    "port",
+]
+
 grammar: str = load_grammar(RFC3987_SYNTAX_GRAMMAR_PATH)
 
-syntax_parser = Lark(grammar, start=["iri", "iri_reference", "absolute_iri"], parser=RFC3987_SYNTAX_PARSER_TYPE)
+# Single shared parser with all start rules
+syntax_parser = Lark(grammar, start=ALL_START_RULES, parser=RFC3987_SYNTAX_PARSER_TYPE)
 
 
 def parse(term: str, value: str) -> ParseTree:
@@ -63,16 +107,9 @@ def is_valid_syntax(term: str, value: str):
 
 
 def make_syntax_validator(rule_name):
-    parser = Lark(grammar, start=rule_name, parser=RFC3987_SYNTAX_PARSER_TYPE)
+    """Create a validator using the shared parser."""
 
-    def syntax_validator(text):
-        try:
-            parser.parse(text)
-            return True
-        except exceptions.LarkError:
-            return False
-
-    return syntax_validator
+    return partial(is_valid_syntax, term=rule_name)
 
 
 is_valid_syntax_iri = make_syntax_validator("iri")
